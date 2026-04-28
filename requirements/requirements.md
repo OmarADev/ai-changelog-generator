@@ -101,7 +101,7 @@
 | **Iteration** | 3 |
 | **Author** | Omar Abdelaziz |
 
-**Description:** The system shall offer a free tier (1 repository, last 30 commits) and a paid Pro tier ($9/month — unlimited repositories, full history, public changelog page).
+**Description:** The system should offer a free tier (1 repository, last 30 commits) and a paid Pro tier ($9/month — unlimited repositories, full history, public changelog page).
 
 **Acceptance Criteria:** Stripe payment integration works end-to-end. Tier limits are enforced server-side. Upgrade flow is accessible from the dashboard in under 2 clicks.
 
@@ -118,7 +118,7 @@
 | **Iteration** | 2 |
 | **Author** | Omar Abdelaziz |
 
-**Description:** The system shall generate a complete changelog within 10 seconds for repositories with up to 500 commits, under normal load.
+**Description:** The system should generate a complete changelog within 10 seconds for repositories with up to 500 commits, under normal load.
 
 **Acceptance Criteria:** P95 response time is under 10 seconds measured via load test with 100 concurrent users on the production deployment.
 
@@ -135,6 +135,6 @@
 | **Iteration** | 3 |
 | **Author** | Omar Abdelaziz |
 
-**Description:** Pro users shall be able to customize their public changelog page with their own logo, brand colors, and a custom domain.
+**Description:** Pro users may customize their public changelog page with their own logo, brand colors, and a custom domain.
 
 **Acceptance Criteria:** Logo upload (PNG/SVG, max 2MB) works. Color picker saves and renders correctly. Custom domain is verified via DNS CNAME record and served over HTTPS.
