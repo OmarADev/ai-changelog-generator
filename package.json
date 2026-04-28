@@ -1,0 +1,30 @@
+{
+  "name": "ai-changelog-generator",
+  "version": "0.1.0",
+  "description": "AI-powered changelog generator — turn git commits into beautiful release notes",
+  "main": "dist/index.js",
+  "bin": {
+    "ai-changelog": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts"
+  },
+  "keywords": ["changelog", "git", "ai", "cli", "release-notes"],
+  "author": "OmarADev",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0",
+    "jest": "^29.0.0",
+    "@types/jest": "^29.0.0",
+    "ts-jest": "^29.0.0"
+  }
+}
