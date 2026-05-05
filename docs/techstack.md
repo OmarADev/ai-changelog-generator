@@ -21,7 +21,7 @@
 | Database | PostgreSQL (via Supabase) | 2 |
 | ORM | Prisma | 2 |
 | Deployment | Vercel | 2 |
-| Payments | Stripe | 3 |
+| Payments | Lemon Squeezy | 3 |
 | Styling | Tailwind CSS | 2 |
 
 ---
@@ -110,11 +110,13 @@
 
 ---
 
-## Payments — Stripe
+## Payments — Lemon Squeezy
 
-**Why:** Stripe is the industry standard for SaaS subscription billing. It handles PCI compliance, subscription lifecycle management, and failed payment recovery. Building any of this from scratch would be irresponsible.
+**Why:** Lemon Squeezy acts as merchant of record — they handle VAT collection and remittance in every country a customer pays from, automatically. As a solo developer based in Germany selling internationally, managing EU VAT compliance manually via Stripe would require an accountant and significant ongoing overhead. Lemon Squeezy removes this entirely.
 
-**Why not Paddle or Lemon Squeezy:** Paddle and Lemon Squeezy act as merchant of record (handling VAT/tax automatically), which is an advantage for international sales. This is worth revisiting before Iteration 3 ships — the decision is not final. Stripe is the placeholder because of its better documentation and wider developer familiarity.
+**Why not Stripe:** Stripe is the more technically powerful option and the industry standard for larger SaaS products. But Stripe makes you responsible for tax compliance in every jurisdiction. At the scale and team size of this product (one developer, no accountant), that is an unacceptable operational risk. Stripe becomes the right choice if the product grows to a scale where a dedicated finance function makes sense.
+
+**Why not Paddle:** Paddle is a valid alternative with the same merchant-of-record model. Lemon Squeezy wins on developer experience, simpler dashboard, and better documentation for solo indie developers — which matches the target operator profile of this product.
 
 **Introduced in:** Iteration 3. Payments are not wired in until the product is validated.
 
