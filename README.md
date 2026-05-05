@@ -1,3 +1,4 @@
+[README.md](https://github.com/user-attachments/files/27412061/README.md)
 # AI Changelog Generator
 
 > Turn your git commits into beautiful, human-readable release notes — automatically.
@@ -25,9 +26,9 @@ This project uses Conventional Commits (`feat:`, `fix:`, `docs:`, etc.) — the 
 
 ### 2. Requirements
 
-**a) Simple tool (Airtable):** [Link to Airtable board](#) — 8 requirements with priority, MoSCoW, status, and iteration attributes.
+**a) Simple tool (Airtable):** [Airtable board](https://airtable.com/appywvnxpKDPCBdtP/tblvLl79AsGOfqzuM/viwh8sGsrPOlQJyxW) — 8 requirements with priority, MoSCoW, status, and iteration attributes. [Screenshot](docs/requirements-screenshots/airtable-requirements-board.png)
 
-**b) Professional tool (Jira):** [Link to Jira board](#) — same requirements with additional fields: acceptance criteria, story points, assignee, sprint.
+**b) Professional tool (Jira):** [Jira board](https://omar2942004.atlassian.net/jira/software/c/projects/ACG/boards/3/backlog) — same requirements with additional fields: acceptance criteria, story points, assignee, sprint. Screenshots: [Board view](docs/requirements-screenshots/jira-board-all-requirements.png) | [Issue detail](docs/requirements-screenshots/jira-issue-detail-cli-tool.png)
 
 **AI usage note:** Claude was used to help draft requirement descriptions. Final requirements, priorities, and acceptance criteria were defined by the author.
 
@@ -81,6 +82,10 @@ Full requirements list: [requirements/requirements.md](requirements/requirements
 │   ├── index.ts        # CLI entry point
 │   └── generator.ts    # Core changelog generation logic
 ├── docs/
+│   ├── requirements-screenshots/
+│   │   ├── airtable-requirements-board.png
+│   │   ├── jira-board-all-requirements.png
+│   │   └── jira-issue-detail-cli-tool.png
 │   ├── constitution.md
 │   ├── iteration-1-spec.md
 │   ├── iteration-1-validation.md
