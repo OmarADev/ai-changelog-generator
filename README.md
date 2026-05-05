@@ -1,4 +1,3 @@
-[README.md](https://github.com/user-attachments/files/27412061/README.md)
 # AI Changelog Generator
 
 > Turn your git commits into beautiful, human-readable release notes — automatically.

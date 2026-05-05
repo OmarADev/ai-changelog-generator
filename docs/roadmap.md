@@ -101,7 +101,7 @@ Iteration 1 works without AI and without a server — just a CLI reading local g
 
 ### Deliverables
 - Stripe integration — subscription billing
-- Free tier: 1 repository, last 50 commits, "Powered by AI Changelog" badge
+- Free tier: 1 repository, last 50 commits, "Powered by AI Changelog Generator" badge
 - Pro tier ($9/month): unlimited repositories, full commit history, remove badge
 - Team tier ($29/month): multiple seats, shared repository access, audit log
 - Custom branding for Pro users — logo upload, brand colors, custom domain via CNAME

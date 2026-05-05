@@ -12,7 +12,7 @@
 | **Priority** | High |
 | **MoSCoW** | Must Have |
 | **Status** | Planned |
-| **Iteration** | 1 |
+| **Iteration** | 2 |
 | **Author** | Omar Abdelaziz |
 
 **Description:** The system shall allow users to authenticate using their GitHub account via OAuth 2.0. No password-based login is offered.
@@ -29,7 +29,7 @@
 | **Priority** | High |
 | **MoSCoW** | Must Have |
 | **Status** | Planned |
-| **Iteration** | 1 |
+| **Iteration** | 2 |
 | **Author** | Omar Abdelaziz |
 
 **Description:** The system shall retrieve the full commit history of a connected GitHub repository via the GitHub API or local git commands.
@@ -100,7 +100,7 @@
 | **Iteration** | 3 |
 | **Author** | Omar Abdelaziz |
 
-**Description:** The system should offer a free tier (1 repository, last 30 commits) and a paid Pro tier ($9/month — unlimited repositories, full history, public changelog page).
+**Description:** The system should offer a free tier (1 repository, last 50 commits) and a paid Pro tier ($9/month — unlimited repositories, full history, public changelog page).
 
 **Acceptance Criteria:** Stripe payment integration works end-to-end. Tier limits are enforced server-side. Upgrade flow is accessible from the dashboard in under 2 clicks.
 
