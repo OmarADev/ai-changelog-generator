@@ -1,7 +1,6 @@
 # Requirements — AI Changelog Generator
 
-> These requirements are also tracked in [Airtable](#) (simple tool) and [Jira](#) (professional tool).
-> Links will be added after setup.
+> These requirements are also tracked in [Airtable](https://airtable.com/appywvnxpKDPCBdtP/tblvLl79AsGOfqzuM/viwh8sGsrPOlQJyxW) (simple tool) and [Jira](https://omar2942004.atlassian.net/jira/software/c/projects/ACG/boards/3/backlog) (professional tool).
 
 ---
 

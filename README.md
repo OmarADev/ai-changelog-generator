@@ -45,34 +45,34 @@ Full requirements list: [requirements/requirements.md](requirements/requirements
 - [Startup Analysis (Classic + AI)](docs/startup-analysis.md) — 15 points covering problem, market, competition, business model, AI strategy, ethics
 
 ### 4. UML
-*Coming in next iteration — see `docs/uml/`*
+*Planned for Iteration 2 — `docs/uml/` will contain: Use-Case diagram (user flows), Class diagram (core domain model), Component diagram (CLI + web + API layers), Activity diagram (changelog generation flow).*
 
 ### 5. DDD
-*Coming in next iteration — see `docs/ddd/`*
+*Planned for Iteration 2 — `docs/ddd/` will contain: Event Storming output, Core Domain Chart across Changelog / Auth / Billing / Notification domains, Context Mapping diagram, and one full Bounded Context Canvas.*
 
 ### 6. Metrics
-*Coming in next iteration — SonarQube output in `docs/metrics/`*
+*Planned for Iteration 2 — SonarQube scan of the TypeScript codebase with screenshots of code quality report, coverage metrics, and explanation of any flagged issues.*
 
 ### 7. Clean Code Development
-*Coming in next iteration — see `docs/clean-code.md`*
+*Planned for Iteration 2 — `docs/clean-code.md` will annotate 5+ examples directly from the source with explanations, plus a personal CCD cheat sheet (PDF).*
 
 ### 8. Refactoring
-*Coming in next iteration — see `docs/refactoring.md`*
+*Planned for Iteration 2 — `docs/refactoring.md` will show two non-trivial before/after refactoring examples from `generator.ts` and `index.ts`, with explanation of what changed and why.*
 
 ### 9. Build Management
-*Coming in next iteration — npm scripts + GitHub Actions*
+*Planned for Iteration 2 — npm scripts for build, test, lint, and doc generation. Will integrate with GitHub Actions.*
 
 ### 10. Continuous Delivery
-*Coming in next iteration — GitHub Actions pipeline*
+*Planned for Iteration 2 — GitHub Actions pipeline with: lint → test → build → deploy to Vercel. At least 4 distinct pipeline steps.*
 
 ### 11. Unit Tests
-*Coming in next iteration — see `src/__tests__/`*
+*Planned for Iteration 2 — `src/__tests__/` will cover core changelog generation logic. One test written manually, one developed with AI assistance, both integrated into the CI build.*
 
 ### 12. Functional Programming
-*Coming in next iteration — see `docs/functional-programming.md`*
+*Planned for Iteration 2 — `docs/functional-programming.md` will demonstrate: pure functions, higher-order functions, immutable data, function composition, and closures — all from the existing TypeScript source.*
 
 ### 13. Vibe Coding / Agentic Coding
-*Coming in next iteration*
+*Planned for Iteration 3 — will cover: (A) GUI built with Google Stitch with prompts documented, (B) middle-sized pet project via Lovable, (C) distributed app built step-by-step with Claude Code, with full proof of understanding.*
 
 ---
 
