@@ -33,6 +33,7 @@ This project uses Conventional Commits (`feat:`, `fix:`, `docs:`, etc.) — the 
 **AI usage note:** Claude was used to help draft requirement descriptions. Final requirements, priorities, and acceptance criteria were defined by the author.
 
 **c) Constitution + Spec/Validation docs:**
+- [Mission](docs/mission.md)
 - [Constitution](docs/constitution.md)
 - [Iteration 1 — Spec](docs/iteration-1-spec.md)
 - [Iteration 1 — Validation](docs/iteration-1-validation.md)
@@ -86,6 +87,7 @@ Full requirements list: [requirements/requirements.md](requirements/requirements
 │   │   ├── airtable-requirements-board.png
 │   │   ├── jira-board-all-requirements.png
 │   │   └── jira-issue-detail-cli-tool.png
+│   ├── mission.md
 │   ├── constitution.md
 │   ├── iteration-1-spec.md
 │   ├── iteration-1-validation.md
