@@ -35,6 +35,7 @@ This project uses Conventional Commits (`feat:`, `fix:`, `docs:`, etc.) — the 
 **c) Constitution + Spec/Validation docs:**
 - [Mission](docs/mission.md)
 - [Roadmap](docs/roadmap.md)
+- [Tech Stack](docs/techstack.md)
 - [Constitution](docs/constitution.md)
 - [Iteration 1 — Spec](docs/iteration-1-spec.md)
 - [Iteration 1 — Validation](docs/iteration-1-validation.md)
@@ -90,6 +91,7 @@ Full requirements list: [requirements/requirements.md](requirements/requirements
 │   │   └── jira-issue-detail-cli-tool.png
 │   ├── mission.md
 │   ├── roadmap.md
+│   ├── techstack.md
 │   ├── constitution.md
 │   ├── iteration-1-spec.md
 │   ├── iteration-1-validation.md
