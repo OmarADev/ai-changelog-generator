@@ -46,7 +46,11 @@ Full requirements list: [requirements/requirements.md](requirements/requirements
 - [Startup Analysis (Classic + AI)](docs/startup-analysis.md) — 15 points covering problem, market, competition, business model, AI strategy, ethics
 
 ### 4. UML
-*Planned for Iteration 2 — `docs/uml/` will contain: Use-Case diagram (user flows), Class diagram (core domain model), Component diagram (CLI + web + API layers), Activity diagram (changelog generation flow).*
+Diagrams exported as PNG in `docs/uml/`. Drawn manually in draw.io — no AI used for diagram content.
+- [Use-Case Diagram](docs/uml/use-case-diagram.png) — 18 use cases across Developer and End User actors, with GitHub / Claude AI API / Lemon Squeezy as external systems
+- Class Diagram — *coming next*
+- Component Diagram — *coming next*
+- Activity Diagram — *coming next*
 
 ### 5. DDD
 *Planned for Iteration 2 — `docs/ddd/` will contain: Event Storming output, Core Domain Chart across Changelog / Auth / Billing / Notification domains, Context Mapping diagram, and one full Bounded Context Canvas.*
