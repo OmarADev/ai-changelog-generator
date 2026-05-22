@@ -20,7 +20,7 @@ Branch strategy, merges, and time-travel demonstrated in this repository.
 - See commit history: [github.com/OmarADev/ai-changelog-generator/commits](https://github.com/OmarADev/ai-changelog-generator/commits)
 - Feature branch merged: `feature/cli-core` → `main`
 - Time-travel example: `git checkout <hash>` shown in screenshots (see `docs/git-screenshots/`)
-![example-screenshot](./docs/git-screenshots/time-travel.png)
+![example-screenshot](./docs/git-screenshots/03-time-travel.png)
 
 This project uses Conventional Commits (`feat:`, `fix:`, `docs:`, etc.) — the same format our tool reads to generate changelogs.
 
