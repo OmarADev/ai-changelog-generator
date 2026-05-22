@@ -51,7 +51,7 @@ Diagrams exported as PNG in `docs/uml/`. Drawn manually in draw.io — no AI use
 - [Use-Case Diagram](docs/uml/use-case-diagram.png) — 18 use cases across Developer and End User actors, with GitHub / Claude AI API / Lemon Squeezy as external systems
 - [Class Diagram](docs/uml/class-diagram.png) — 6 classes: CLIRunner, ChangelogGenerator, Commit, ChangelogEntry, User, Repository
 - [Component Diagram](docs/uml/component-diagram.png) — 3 layers: Presentation (CLIInterface), Application (GitReader, ChangelogGenerator), External (Git Repository, stdout)
-- Activity Diagram — *coming next*
+- [Activity Diagram](docs/uml/activity%20diagram.png) — CLI execution flow: validate path → read git log → parse → categorize → format → output
 
 ### 5. DDD
 *Planned for Iteration 2 — `docs/ddd/` will contain: Event Storming output, Core Domain Chart across Changelog / Auth / Billing / Notification domains, Context Mapping diagram, and one full Bounded Context Canvas.*
