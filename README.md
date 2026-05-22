@@ -49,7 +49,7 @@ Full requirements list: [requirements/requirements.md](requirements/requirements
 ### 4. UML
 Diagrams exported as PNG in `docs/uml/`. Drawn manually in draw.io — no AI used for diagram content.
 - [Use-Case Diagram](docs/uml/use-case-diagram.png) — 18 use cases across Developer and End User actors, with GitHub / Claude AI API / Lemon Squeezy as external systems
-- Class Diagram — *coming next*
+- [Class Diagram](docs/uml/class-diagram.png) — 6 classes: CLIRunner, ChangelogGenerator, Commit, ChangelogEntry, User, Repository
 - Component Diagram — *coming next*
 - Activity Diagram — *coming next*
 
@@ -113,5 +113,5 @@ Diagrams exported as PNG in `docs/uml/`. Drawn manually in draw.io — no AI use
 - Next.js (Web dashboard — Iteration 2)
 - Claude AI API (Iteration 2)
 - GitHub OAuth / NextAuth (Iteration 2)
-- Stripe (Iteration 3)
+- Lemon Squeezy (Payments — Iteration 2)
 - Vercel (Deployment)
