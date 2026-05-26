@@ -60,7 +60,7 @@ Diagrams exported as PNG in `docs/ddd/`. Drawn manually in draw.io.
 - [Event Storming: Commands](docs/ddd/event%20storming%202%20commands.png) — 21 commands mapped to their triggering events
 - [Core Domain Chart](docs/ddd/core%20domain%20chart.png) — Strategic classification: Changelog (Core), Repository (Supporting), Auth/Billing/Notification (Generic)
 - [Context Mapping](docs/ddd/context%20mapping.png) — 5 bounded contexts with Customer/Supplier and Conformist integration patterns, upstream/downstream notation on every relationship
-- Bounded Context Canvas — *planned*
+- [Bounded Context Canvas](docs/ddd/bounded%20context%20canvas.png) — Deep dive on the Changelog core domain: purpose, roles, inbound/outbound communications, ubiquitous language, business decisions, assumptions
 
 ### 6. Metrics
 *Planned for Iteration 2 — SonarQube scan of the TypeScript codebase with screenshots of code quality report, coverage metrics, and explanation of any flagged issues.*
