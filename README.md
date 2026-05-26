@@ -54,7 +54,13 @@ Diagrams exported as PNG in `docs/uml/`. Drawn manually in draw.io — no AI use
 - [Activity Diagram](docs/uml/activity%20diagram.png) — CLI execution flow: validate path → read git log → parse → categorize → format → output
 
 ### 5. DDD
-*Planned for Iteration 2 — `docs/ddd/` will contain: Event Storming output, Core Domain Chart across Changelog / Auth / Billing / Notification domains, Context Mapping diagram, and one full Bounded Context Canvas.*
+Diagrams exported as PNG in `docs/ddd/`. Drawn manually in draw.io.
+
+- [Event Storming: Events](docs/ddd/event%20storming%201%20events.png) — 20 domain events across 5 bounded contexts (Authentication, Repository, Changelog, Billing, Notification)
+- [Event Storming: Commands](docs/ddd/event%20storming%202%20commands.png) — 21 commands mapped to their triggering events
+- [Core Domain Chart](docs/ddd/core%20domain%20chart.png) — Strategic classification: Changelog (Core), Repository (Supporting), Auth/Billing/Notification (Generic)
+- [Context Mapping](docs/ddd/context%20mapping.png) — 5 bounded contexts with Customer/Supplier and Conformist integration patterns, upstream/downstream notation on every relationship
+- Bounded Context Canvas — *planned*
 
 ### 6. Metrics
 *Planned for Iteration 2 — SonarQube scan of the TypeScript codebase with screenshots of code quality report, coverage metrics, and explanation of any flagged issues.*
