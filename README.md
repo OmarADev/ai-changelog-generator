@@ -13,7 +13,7 @@ npx ai-changelog /path/to/repo
 
 ---
 
-## Grading Checklist (SE Course — Prof. Edlich)
+## Grading Checklist (SE Course: Prof. Edlich)
 
 ### 1. Git
 Branch strategy, merges, and time-travel demonstrated in this repository.
@@ -37,9 +37,9 @@ This project uses Conventional Commits (`feat:`, `fix:`, `docs:`, etc.) — the 
 - [Roadmap](docs/roadmap.md)
 - [Tech Stack](docs/techstack.md)
 - [Constitution](docs/constitution.md)
-- [Iteration 1 — Spec](docs/iteration-1-spec.md)
-- [Iteration 1 — Validation](docs/iteration-1-validation.md)
-- [Iteration 2 — Spec](docs/iteration-2-spec.md)
+- [Iteration 1: Spec](docs/iteration-1-spec.md)
+- [Iteration 1: Validation](docs/iteration-1-validation.md)
+- [Iteration 2: Spec](docs/iteration-2-spec.md)
 
 Full requirements list: [requirements/requirements.md](requirements/requirements.md)
 
@@ -62,14 +62,24 @@ Diagrams exported as PNG in `docs/ddd/`. Drawn manually in draw.io.
 - [Context Mapping](docs/ddd/context%20mapping.png) — 5 bounded contexts with Customer/Supplier and Conformist integration patterns, upstream/downstream notation on every relationship
 - [Bounded Context Canvas](docs/ddd/bounded%20context%20canvas.png) — Deep dive on the Changelog core domain: purpose, roles, inbound/outbound communications, ubiquitous language, business decisions, assumptions
 
-### 6. Metrics
-*Planned for Iteration 2 — SonarQube scan of the TypeScript codebase with screenshots of code quality report, coverage metrics, and explanation of any flagged issues.*
+### 6. Clean Code Development
+*Planned — `docs/clean-code.md` will annotate 5+ examples directly from the source with explanations of why each qualifies as clean code, plus a personal CCD cheat sheet (PDF) with 10+ points.*
 
-### 7. Clean Code Development
-*Planned for Iteration 2 — `docs/clean-code.md` will annotate 5+ examples directly from the source with explanations, plus a personal CCD cheat sheet (PDF).*
+### 7. Refactoring
+*Planned — `docs/refactoring.md` will show two non-trivial before/after refactoring examples from `generator.ts` and `index.ts`, with screenshots of the original code, explanation of what changed, and why it improved.*
 
-### 8. Refactoring
-*Planned for Iteration 2 — `docs/refactoring.md` will show two non-trivial before/after refactoring examples from `generator.ts` and `index.ts`, with explanation of what changed and why.*
+### 8. Testing
+Unit tests in [`src/__tests__/generator.test.ts`](src/__tests__/generator.test.ts) covering the core `generateChangelog()` function.
+
+**Part A: without AI** — written manually, no mocks, basic assertions:
+- Groups `feat:` commits under "Features"
+- Groups `fix:` commits under "Bug Fixes"
+- Routes unrecognized commits to "Other Changes"
+- Handles empty input
+
+All 4 tests pass. See: [tests-passing.png](docs/screenshots/tests-passing.png)
+
+**Part B: with AI + mocks** — planned. Will add `execSync` mock for `index.ts`, edge case coverage, and exception handling tests.
 
 ### 9. Build Management
 npm scripts defined in `package.json`:
@@ -85,7 +95,7 @@ ESLint configured in `.eslintrc.json` with `@typescript-eslint` rules.
 See CI pipeline screenshot: [ci-pipeline-steps.png](docs/screenshots/ci-pipeline-steps.png)
 
 ### 10. Continuous Delivery
-GitHub Actions pipeline defined in `.github/workflows/ci.yml`. Runs on every push and pull request to `main`.
+GitHub Actions pipeline defined in [`.github/workflows/ci.yml`](.github/workflows/ci.yml). Runs on every push and pull request to `main`.
 
 Pipeline steps:
 1. Install dependencies (`npm install`)
@@ -95,24 +105,16 @@ Pipeline steps:
 
 First run passed on Jun 3, 2026 in 1m 17s.
 - [Pipeline overview](docs/screenshots/ci-pipeline-overview.png)
-- [Pipeline steps — all passing](docs/screenshots/ci-pipeline-steps.png)
+- [Pipeline steps: all passing](docs/screenshots/ci-pipeline-steps.png)
 
-### 11. Unit Tests
-Unit tests in `src/__tests__/generator.test.ts` covering the core `generateChangelog()` function.
+### 11. Metrics
+*Planned — at least two metrics tools. SonarQube scan of the TypeScript codebase with screenshots of the code quality report, plus one additional metric. Output documented with screenshots and explanation of flagged issues.*
 
-Written manually without AI assistance (first pass — no mocks, basic assertions):
-- Groups `feat:` commits under "Features"
-- Groups `fix:` commits under "Bug Fixes"
-- Routes unrecognized commits to "Other Changes"
-- Handles empty input
+### 12. Architecture
+*Planned — Architecture Communication Canvas for the AI Changelog Generator covering: system context, building blocks, runtime view, deployment view, and key architectural decisions.*
 
-All 4 tests pass. See: [tests-passing.png](docs/screenshots/tests-passing.png)
-
-### 12. Functional Programming
-*Planned for Iteration 2 — `docs/functional-programming.md` will demonstrate: pure functions, higher-order functions, immutable data, function composition, and closures — all from the existing TypeScript source.*
-
-### 13. Vibe Coding / Agentic Coding
-*Planned for Iteration 3 — will cover: (A) GUI built with Google Stitch with prompts documented, (B) middle-sized pet project via Lovable, (C) distributed app built step-by-step with Claude Code, with full proof of understanding.*
+### 13. Vibe Coding / Agentic Coding (counts double)
+*Planned — three parts: (A) GUI built with Google Stitch, prompts documented in GitHub; (B) middle-sized pet project via Lovable; (C) distributed app built step-by-step with Claude Code, separate modules, md files per step, with full proof of understanding.*
 
 ---
 
