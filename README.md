@@ -76,7 +76,12 @@ Full annotations: [docs/clean-code.md](docs/clean-code.md)
 Personal CCD cheat sheet (12 principles): [docs/ccd-cheatsheet.md](docs/ccd-cheatsheet.md) — export to PDF via browser print.
 
 ### 7. Refactoring
-*Planned — `docs/refactoring.md` will show two non-trivial before/after refactoring examples from `generator.ts` and `index.ts`, with screenshots of the original code, explanation of what changed, and why it improved.*
+Two non-trivial before/after examples from the real source code:
+
+1. **Extract Function:** `generateChangelog` originally mixed categorization, grouping, and formatting in one 25-line block. Extracted `categorizeCommit()` and `formatCommitLine()` as separate pure functions. This is what made the unit tests in section 8 possible.
+2. **Error handling at the boundary:** `index.ts` originally had no error handling, dumping raw Node.js stack traces on invalid paths. Refactored to a top-level try/catch with a human-readable message and proper exit codes.
+
+Full before/after code and failure notes: [docs/refactoring.md](docs/refactoring.md)
 
 ### 8. Testing
 Unit tests in [`src/__tests__/generator.test.ts`](src/__tests__/generator.test.ts) covering the core `generateChangelog()` function.
