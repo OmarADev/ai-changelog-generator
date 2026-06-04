@@ -73,7 +73,7 @@ Five annotated examples from the real source code, each tied to a named clean co
 
 Full annotations: [docs/clean-code.md](docs/clean-code.md)
 
-Personal CCD cheat sheet (12 principles): [docs/ccd-cheatsheet.md](docs/ccd-cheatsheet.md) — export to PDF via browser print.
+Personal CCD cheat sheet (12 principles): [docs/ccd-cheatsheet.md](docs/ccd-cheatsheet.md) | [PDF](docs/ccd-cheatsheet.pdf)
 
 ### 7. Refactoring
 Two non-trivial before/after examples from the real source code:
@@ -94,7 +94,12 @@ Unit tests in [`src/__tests__/generator.test.ts`](src/__tests__/generator.test.t
 
 All 4 tests pass. See: [tests-passing.png](docs/screenshots/tests-passing.png)
 
-**Part B: with AI + mocks** — planned. Will add `execSync` mock for `index.ts`, edge case coverage, and exception handling tests.
+**Part B: with AI + mocks** — `execSync` from `child_process` mocked via `jest.mock`. Three tests covering the CLI entry point (`index.ts`):
+- Prints changelog when git log returns commits
+- Prints "No commits found." and exits 0 for an empty repository
+- Prints error message and exits 1 when path is not a git repository
+
+All 7 tests pass (4 Part A + 3 Part B).
 
 ### 9. Build Management
 npm scripts defined in `package.json`:
