@@ -1,10 +1,10 @@
-# Tech Stack — AI Changelog Generator
+# Tech Stack: AI Changelog Generator
 
 **Version:** 1.0
 **Author:** Omar Abdelaziz
 **Last updated:** 2026-05-05
 
-> *Each technology choice is justified by a specific product requirement or constraint — not picked for familiarity alone. Alternatives considered are noted where the decision was non-obvious.*
+> *Each technology choice is justified by a specific product requirement or constraint, not picked for familiarity alone. Alternatives considered are noted where the decision was non-obvious.*
 
 ---
 
@@ -26,9 +26,9 @@
 
 ---
 
-## Language — TypeScript
+## Language: TypeScript
 
-**Why:** Type safety catches a class of bugs at compile time that are expensive to debug at runtime — especially important in a tool that reads and transforms structured git data. TypeScript also makes the codebase easier to navigate and extend as it grows.
+**Why:** Type safety catches a class of bugs at compile time that are expensive to debug at runtime, especially important in a tool that reads and transforms structured git data. TypeScript also makes the codebase easier to navigate and extend as it grows.
 
 **Why not plain JavaScript:** The product reads git commit objects, maps them to typed domain models, and transforms them through several stages before output. Without types, that pipeline is fragile. The cost of adding TypeScript (a `tsconfig.json` and type annotations) is low compared to the bugs it prevents.
 
@@ -36,7 +36,7 @@
 
 ---
 
-## Runtime — Node.js 20+
+## Runtime: Node.js 20+
 
 **Why:** The CLI needs to shell out to `git` commands and read the local filesystem. Node.js has first-class support for both via `child_process` and `fs`. It also shares the language with the web dashboard, meaning no context switch between CLI and server development.
 
@@ -44,7 +44,7 @@
 
 ---
 
-## CLI Packaging — npx / npm
+## CLI Packaging: npx / npm
 
 **Why:** `npx ai-changelog` requires zero installation. A developer who wants to try the tool runs one command. No global install, no dependency management, no setup. This is the lowest possible friction for the target user (solo developers).
 
@@ -52,9 +52,9 @@
 
 ---
 
-## Web Framework — Next.js 14
+## Web Framework: Next.js 14
 
-**Why:** Next.js covers the full web layer in one framework — server-side rendering, API routes, and static pages. The public changelog page (REQ-004) must be server-rendered for SEO and fast load times. The dashboard API routes handle GitHub OAuth callbacks and changelog generation requests. One framework handles both without splitting into a separate frontend and backend.
+**Why:** Next.js covers the full web layer in one framework: server-side rendering, API routes, and static pages. The public changelog page (REQ-004) must be server-rendered for SEO and fast load times. The dashboard API routes handle GitHub OAuth callbacks and changelog generation requests. One framework handles both without splitting into a separate frontend and backend.
 
 **Why not Express + React separately:** Two separate services (API server + React SPA) means two deployments, two sets of environment variables, and a CORS configuration to maintain. Next.js collapses this into a single Vercel deployment.
 
@@ -62,9 +62,9 @@
 
 ---
 
-## AI Engine — Claude API (Anthropic)
+## AI Engine: Claude API (Anthropic)
 
-**Why:** The core product claim is semantic understanding of git history — not just pattern matching. Claude's language understanding reliably interprets ambiguous, inconsistent, or poorly written commit messages and produces coherent user-facing output. This was validated manually against a set of real repositories with messy commit histories.
+**Why:** The core product claim is semantic understanding of git history, not just pattern matching. Claude's language understanding reliably interprets ambiguous, inconsistent, or poorly written commit messages and produces coherent user-facing output. This was validated manually against a set of real repositories with messy commit histories.
 
 **Why not OpenAI GPT-4 or local models:** GPT-4 is a valid alternative technically, but Anthropic's API has competitive pricing at the usage volumes expected in early iterations, and Claude performs well on structured summarization tasks. Local models (Ollama, LLaMA) were ruled out because the hosted SaaS product cannot rely on the user having a local inference server.
 
@@ -74,9 +74,9 @@
 
 ---
 
-## Authentication — NextAuth.js + GitHub OAuth
+## Authentication: NextAuth.js + GitHub OAuth
 
-**Why GitHub OAuth:** The target user is a developer with an existing GitHub account. GitHub OAuth means zero new credentials to manage — users sign in with something they already have. It also grants the OAuth scope needed to read their repository commit history via the GitHub API.
+**Why GitHub OAuth:** The target user is a developer with an existing GitHub account. GitHub OAuth means zero new credentials to manage: users sign in with something they already have. It also grants the OAuth scope needed to read their repository commit history via the GitHub API.
 
 **Why NextAuth.js:** NextAuth handles the OAuth flow, session management, and token storage with minimal configuration. It integrates directly with Next.js API routes and has built-in support for GitHub as a provider.
 
@@ -84,9 +84,9 @@
 
 ---
 
-## Database — PostgreSQL via Supabase
+## Database: PostgreSQL via Supabase
 
-**Why PostgreSQL:** Relational structure is the right fit for this data model — users have repositories, repositories have changelogs, changelogs have entries. Relational queries (join user → repos → latest changelog) are straightforward in SQL and efficient with proper indexing.
+**Why PostgreSQL:** Relational structure is the right fit for this data model: users have repositories, repositories have changelogs, changelogs have entries. Relational queries (join user → repos → latest changelog) are straightforward in SQL and efficient with proper indexing.
 
 **Why Supabase:** Supabase provides a managed PostgreSQL instance with a generous free tier, built-in connection pooling, and a dashboard for inspecting data during development. It removes the operational overhead of running a database server while keeping full SQL access via Prisma.
 
@@ -94,7 +94,7 @@
 
 ---
 
-## ORM — Prisma
+## ORM: Prisma
 
 **Why:** Prisma generates TypeScript types directly from the database schema, meaning the data layer is fully type-safe end-to-end. Database schema changes are managed via versioned migration files, giving a clear audit trail of how the data model evolved.
 
@@ -102,31 +102,31 @@
 
 ---
 
-## Deployment — Vercel
+## Deployment: Vercel
 
-**Why:** Vercel is the natural deployment target for Next.js — it was built by the same team. Zero-config deployments from GitHub pushes, automatic preview deployments per pull request, and a global CDN for the public changelog pages (which must load fast for end users).
+**Why:** Vercel is the natural deployment target for Next.js: it was built by the same team. Zero-config deployments from GitHub pushes, automatic preview deployments per pull request, and a global CDN for the public changelog pages (which must load fast for end users).
 
-**Why not AWS, Railway, or Fly.io:** All are viable. Vercel wins on time-to-deploy for a solo developer — no infrastructure configuration, no Dockerfile, no environment provisioning. The tradeoff (less control, vendor lock-in on serverless functions) is acceptable at this stage.
+**Why not AWS, Railway, or Fly.io:** All are viable. Vercel wins on time-to-deploy for a solo developer: no infrastructure configuration, no Dockerfile, no environment provisioning. The tradeoff (less control, vendor lock-in on serverless functions) is acceptable at this stage.
 
 ---
 
-## Payments — Lemon Squeezy
+## Payments: Lemon Squeezy
 
-**Why:** Lemon Squeezy acts as merchant of record — they handle VAT collection and remittance in every country a customer pays from, automatically. As a solo developer based in Germany selling internationally, managing EU VAT compliance manually via Stripe would require an accountant and significant ongoing overhead. Lemon Squeezy removes this entirely.
+**Why:** Lemon Squeezy acts as merchant of record: they handle VAT collection and remittance in every country a customer pays from, automatically. As a solo developer based in Germany selling internationally, managing EU VAT compliance manually via Stripe would require an accountant and significant ongoing overhead. Lemon Squeezy removes this entirely.
 
 **Why not Stripe:** Stripe is the more technically powerful option and the industry standard for larger SaaS products. But Stripe makes you responsible for tax compliance in every jurisdiction. At the scale and team size of this product (one developer, no accountant), that is an unacceptable operational risk. Stripe becomes the right choice if the product grows to a scale where a dedicated finance function makes sense.
 
-**Why not Paddle:** Paddle is a valid alternative with the same merchant-of-record model. Lemon Squeezy wins on developer experience, simpler dashboard, and better documentation for solo indie developers — which matches the target operator profile of this product.
+**Why not Paddle:** Paddle is a valid alternative with the same merchant-of-record model. Lemon Squeezy wins on developer experience, simpler dashboard, and better documentation for solo indie developers, which matches the target operator profile of this product.
 
 **Introduced in:** Iteration 3. Payments are not wired in until the product is validated.
 
 ---
 
-## Styling — Tailwind CSS
+## Styling: Tailwind CSS
 
 **Why:** Tailwind enables consistent UI without writing custom CSS files. Utility classes keep styles co-located with components, which matters in a codebase maintained by one developer. The output is also smaller than a traditional CSS framework because unused styles are purged at build time.
 
-**Why not plain CSS or MUI/shadcn:** Plain CSS at scale becomes hard to maintain without a naming convention (BEM etc.). shadcn/ui is built on Tailwind and will be used for component primitives (buttons, modals, inputs) — it is a layer on top of Tailwind, not a replacement.
+**Why not plain CSS or MUI/shadcn:** Plain CSS at scale becomes hard to maintain without a naming convention (BEM etc.). shadcn/ui is built on Tailwind and will be used for component primitives (buttons, modals, inputs): it is a layer on top of Tailwind, not a replacement.
 
 ---
 

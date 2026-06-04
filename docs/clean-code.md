@@ -27,7 +27,7 @@ function categorizeCommit(message: string): string {
 
 ## Example 2: Meaningful Names
 
-**Principle:** Names should reveal intent — a reader should understand what something holds or does without needing a comment.
+**Principle:** Names should reveal intent: a reader should understand what something holds or does without needing a comment.
 
 **Location:** `src/generator.ts`, lines 32-49
 
@@ -42,7 +42,7 @@ export function generateChangelog(commits: Commit[]): string {
 }
 ```
 
-**Why this is clean:** Every name here earns its place. `generateChangelog` tells you exactly what the function produces. `commits` describes what the array contains — not `data`, not `arr`, not `c`. `sections` describes the grouped structure being built. `category` describes what the string represents. None of these need a comment above them explaining what they are — the names do that work on their own. Compare this to naming the same variables `input`, `obj`, `str`, `val` — you would need to trace the full execution to understand anything.
+**Why this is clean:** Every name here earns its place. `generateChangelog` tells you exactly what the function produces. `commits` describes what the array contains, not `data`, not `arr`, not `c`. `sections` describes the grouped structure being built. `category` describes what the string represents. None of these need a comment above them: the names do that work on their own. Compare this to naming the same variables `input`, `obj`, `str`, `val` and you would need to trace the full execution to understand anything.
 
 ---
 
@@ -60,7 +60,7 @@ function formatCommitLine(commit: Commit): string {
 }
 ```
 
-**Why this is clean:** This function reads only what you pass it and returns a string. It writes nothing, reads no global state, makes no network calls, has no randomness. Given the same `Commit` object you will always get the same formatted string back. That predictability is why it is trivial to test — you just pass a commit and assert on the output, no setup or teardown needed. Pure functions are also easy to move, reuse, and reason about because they carry no hidden dependencies.
+**Why this is clean:** This function reads only what you pass it and returns a string. It writes nothing, reads no global state, makes no network calls, has no randomness. Given the same `Commit` object you will always get the same formatted string back. That predictability is why it is trivial to test: just pass a commit and assert on the output, no setup or teardown needed. Pure functions are also easy to move, reuse, and reason about because they carry no hidden dependencies.
 
 ---
 
@@ -85,7 +85,7 @@ try {
 }
 ```
 
-**Why this is clean:** Two fail fast patterns are at work here. First, the `commits.length === 0` check exits immediately with a meaningful message instead of calling `generateChangelog` on empty input and producing garbage output. Second, the surrounding `try/catch` catches any failure from `execSync` — an invalid path, a missing git binary, a non-repo directory — and exits with a clear error message and a non-zero exit code. The alternative would be letting the error bubble up as a raw Node.js stack trace, which tells the user nothing useful. Failing fast keeps the error surface small and the messages actionable.
+**Why this is clean:** Two fail fast patterns are at work here. First, the `commits.length === 0` check exits immediately with a meaningful message instead of calling `generateChangelog` on empty input and producing garbage output. Second, the surrounding `try/catch` catches any failure from `execSync` (an invalid path, a missing git binary, a non-repo directory) and exits with a clear error message and a non-zero exit code. The alternative would be letting the error bubble up as a raw Node.js stack trace, which tells the user nothing useful. Failing fast keeps the error surface small and the messages actionable.
 
 ---
 
@@ -97,12 +97,12 @@ try {
 
 **Code:**
 ```typescript
-// categorizeCommit  — 6 lines
-// formatCommitLine  — 3 lines
-// generateChangelog — 17 lines
+// categorizeCommit:  6 lines
+// formatCommitLine:  3 lines
+// generateChangelog: 17 lines
 ```
 
-**Why this is clean:** Every function in `generator.ts` fits on one screen with room to spare. Each one has a clear entry point and a clear exit point. To understand what the module does you read three small pieces instead of one large tangled block. The alternative is a single `generateChangelog` function that reads the commits, loops through them, categorizes inline, formats inline, builds the header, builds the body, and joins everything — 60+ lines with nested conditionals and multiple responsibilities packed together. That version would be hard to test (you can't test categorization separately), hard to change (every edit risks breaking formatting or header logic), and hard to read. Keeping functions small forces the decomposition that makes code maintainable.
+**Why this is clean:** Every function in `generator.ts` fits on one screen with room to spare. Each one has a clear entry point and a clear exit point. To understand what the module does you read three small pieces instead of one large tangled block. The alternative is a single `generateChangelog` function that reads the commits, loops through them, categorizes inline, formats inline, builds the header, builds the body, and joins everything: 60+ lines with nested conditionals and multiple responsibilities packed together. That version would be hard to test (you can't test categorization separately), hard to change (every edit risks breaking formatting or header logic), and hard to read. Keeping functions small forces the decomposition that makes code maintainable.
 
 ---
 
@@ -128,7 +128,7 @@ Where possible, write functions that only depend on their inputs and only affect
 Check for bad input at the boundary. Exit early with a clear message. Do not let invalid state travel deep into the call stack where the error message will be confusing.
 
 **6. DRY: Don't Repeat Yourself**
-If you write the same logic twice, extract it. Duplication means two places to update when requirements change — and one of them will be forgotten.
+If you write the same logic twice, extract it. Duplication means two places to update when requirements change, and one of them will be forgotten.
 
 **7. Comments Explain WHY, Not WHAT**
 The code already shows what is happening. The comment should explain why a non-obvious decision was made, or what constraint forced a particular approach.
@@ -152,7 +152,7 @@ if (!hasData) return;
 ```
 Early returns keep the happy path at the left margin and make conditions easy to scan.
 
-**10. Avoid Magic Numbers — Use Named Constants**
+**10. Avoid Magic Numbers: Use Named Constants**
 ```typescript
 // bad
 if (hash.length > 7) { ... }

@@ -1,8 +1,8 @@
-# Iteration 2 — Specification
+# Iteration 2: Specification
 
 **Iteration:** 2  
 **Goal:** Replace pattern-matching with Claude AI; add public changelog web page  
-**Duration:** Week 2–3  
+**Duration:** Week 2-3  
 **Status:** Planned
 
 ---
@@ -31,10 +31,10 @@ This iteration upgrades the core generation logic to use the Claude AI API, and 
 | Requirement | Coverage |
 |---|---|
 | REQ-001 (GitHub OAuth) | Fully implemented |
-| REQ-002 (Commit Retrieval) | Extended — GitHub API via Octokit |
+| REQ-002 (Commit Retrieval) | Extended: GitHub API via Octokit |
 | REQ-003 (AI Generation) | Fully implemented |
 | REQ-004 (Public Page) | Fully implemented |
-| REQ-007 (Performance) | Partially — manual testing, no load test yet |
+| REQ-007 (Performance) | Partially: manual testing, no load test yet |
 
 ---
 
@@ -61,7 +61,7 @@ Public page rendered at /[username]/[repo]
 ```
 You are a technical writer. Given the following git commits, generate a 
 human-readable changelog grouped into: Features, Bug Fixes, Breaking Changes, 
-Other. Be concise. Use plain English. Do not repeat the raw commit message — 
+Other. Be concise. Use plain English. Do not repeat the raw commit message:
 interpret what it means for a user.
 
 Commits:

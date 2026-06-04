@@ -1,4 +1,4 @@
-# Roadmap — AI Changelog Generator
+# Roadmap: AI Changelog Generator
 
 **Version:** 1.0
 **Author:** Omar Abdelaziz
@@ -12,7 +12,7 @@
 
 Ship the smallest useful thing first. Validate it works. Then add the layer on top.
 
-Iteration 1 works without AI and without a server — just a CLI reading local git history. Every iteration after that adds one major capability. Nothing is built speculatively.
+Iteration 1 works without AI and without a server: just a CLI reading local git history. Every iteration after that adds one major capability. Nothing is built speculatively.
 
 ---
 
@@ -27,9 +27,9 @@ Iteration 1 works without AI and without a server — just a CLI reading local g
 
 ---
 
-## Iteration 1 — CLI Foundation
+## Iteration 1: CLI Foundation
 
-**Goal:** Prove the core mechanic works. A developer runs one command and gets a readable changelog from their git history — no login, no internet, no AI required.
+**Goal:** Prove the core mechanic works. A developer runs one command and gets a readable changelog from their git history, no login, no internet, no AI required.
 
 **Why this first:** Before adding AI, we need to validate that the output format, categorization logic, and developer experience are correct. Pattern-based generation is fast to build and lets us test the UX without API costs or latency.
 
@@ -41,7 +41,7 @@ Iteration 1 works without AI and without a server — just a CLI reading local g
 - Works on any git repository without configuration
 
 ### Requirements Covered
-- REQ-005 — CLI Tool *(In Progress)*
+- REQ-005: CLI Tool *(In Progress)*
 
 ### Success Criteria
 - CLI runs in under 2 seconds for 500 commits
@@ -55,25 +55,25 @@ Iteration 1 works without AI and without a server — just a CLI reading local g
 
 ---
 
-## Iteration 2 — AI + Web Dashboard
+## Iteration 2: AI + Web Dashboard
 
 **Goal:** Replace pattern-matching with genuine AI understanding. Add a hosted web dashboard where developers connect their GitHub repos and get a public changelog page.
 
-**Why this second:** The CLI in Iteration 1 proves the format. Iteration 2 proves the value — the AI layer is what separates this from free tools like Release Drafter. The web dashboard turns a CLI utility into a SaaS product.
+**Why this second:** The CLI in Iteration 1 proves the format. Iteration 2 proves the value: the AI layer is what separates this from free tools like Release Drafter. The web dashboard turns a CLI utility into a SaaS product.
 
 ### Deliverables
-- Claude AI API integration — commit messages analyzed semantically, not just pattern-matched
+- Claude AI API integration: commit messages analyzed semantically, not just pattern-matched
 - GitHub OAuth login (NextAuth)
 - Dashboard: connect a repo, trigger changelog generation, view history
 - Public changelog page per repository (`aichangelog.dev/{username}/{repo}`)
 - Deployment to Vercel
 
 ### Requirements Covered
-- REQ-001 — GitHub OAuth Authentication
-- REQ-002 — Git Commit Retrieval
-- REQ-003 — AI Changelog Generation
-- REQ-004 — Public Changelog Page
-- REQ-007 — Performance (P95 under 10s)
+- REQ-001: GitHub OAuth Authentication
+- REQ-002: Git Commit Retrieval
+- REQ-003: AI Changelog Generation
+- REQ-004: Public Changelog Page
+- REQ-007: Performance (P95 under 10s)
 
 ### Success Criteria
 - User can sign in with GitHub, connect a repo, and get an AI-generated changelog in under 60 seconds
@@ -87,29 +87,29 @@ Iteration 1 works without AI and without a server — just a CLI reading local g
 - Custom branding (Iteration 3)
 
 ### Technical Notes
-- AI layer uses Claude API (Anthropic) — commit-message analysis in this iteration, diff analysis on the roadmap for Iteration 4
+- AI layer uses Claude API (Anthropic): commit-message analysis in this iteration, diff analysis on the roadmap for Iteration 4
 - Next.js for the web dashboard
 - GitHub API for commit retrieval (replaces local git commands used in CLI)
 
 ---
 
-## Iteration 3 — Monetization + Polish
+## Iteration 3: Monetization + Polish
 
 **Goal:** Wire in payments, enforce subscription tiers, and add the features that justify the Pro upgrade.
 
 **Why this third:** Monetization comes after validation. If Iteration 2 shows the product works and people are using it, Iteration 3 captures that value. Building payments before anyone is using the product is premature.
 
 ### Deliverables
-- Stripe integration — subscription billing
+- Stripe integration: subscription billing
 - Free tier: 1 repository, last 50 commits, "Powered by AI Changelog Generator" badge
 - Pro tier ($9/month): unlimited repositories, full commit history, remove badge
 - Team tier ($29/month): multiple seats, shared repository access, audit log
-- Custom branding for Pro users — logo upload, brand colors, custom domain via CNAME
+- Custom branding for Pro users: logo upload, brand colors, custom domain via CNAME
 - Tier limits enforced server-side
 
 ### Requirements Covered
-- REQ-006 — Subscription Tiers
-- REQ-008 — Custom Branding
+- REQ-006: Subscription Tiers
+- REQ-008: Custom Branding
 
 ### Success Criteria
 - End-to-end payment flow works (signup → pay → access Pro features)
@@ -123,16 +123,16 @@ Iteration 1 works without AI and without a server — just a CLI reading local g
 
 ---
 
-## Iteration 4 — Growth + Integrations
+## Iteration 4: Growth + Integrations
 
 **Goal:** Deepen the AI capability and build the integrations that make the product sticky for teams.
 
 ### Planned Work
-- **Diff analysis** — AI reads actual code changes, not just commit messages. This is the capability that makes the product defensible long-term.
-- **Integrations** — Slack notifications on new changelog, Linear/Jira ticket linking, Notion export
-- **GitLab support** — expand beyond GitHub
-- **Changelog templates** — user-defined templates for different audiences (technical, marketing, end-user)
-- **API access** — Pro users can trigger changelog generation via REST API for CI/CD integration
+- **Diff analysis:** AI reads actual code changes, not just commit messages. This is the capability that makes the product defensible long-term.
+- **Integrations:** Slack notifications on new changelog, Linear/Jira ticket linking, Notion export
+- **GitLab support:** expand beyond GitHub
+- **Changelog templates:** user-defined templates for different audiences (technical, marketing, end-user)
+- **API access:** Pro users can trigger changelog generation via REST API for CI/CD integration
 
 ### Success Criteria
 - Diff analysis produces measurably better output than commit-message-only on a benchmark set of real repos
@@ -144,9 +144,9 @@ Iteration 1 works without AI and without a server — just a CLI reading local g
 
 This roadmap does not include:
 
-- **Enterprise tier** — not until there is evidence of enterprise demand. Building enterprise features speculatively is a common startup mistake.
-- **Mobile app** — changelogs are a developer workflow. Developers are at desks.
-- **Self-hosted version** — possible later, not a priority until there is explicit demand from security-conscious teams.
+- **Enterprise tier:** not until there is evidence of enterprise demand. Building enterprise features speculatively is a common startup mistake.
+- **Mobile app:** changelogs are a developer workflow. Developers are at desks.
+- **Self-hosted version:** possible later, not a priority until there is explicit demand from security-conscious teams.
 
 ---
 
@@ -160,4 +160,4 @@ This roadmap does not include:
 
 ## AI Usage Note
 
-This roadmap was developed in conjunction with Claude AI through iterative Q&A. Iteration scope, success criteria, and sequencing decisions were made by the author based on product reasoning — not generated wholesale. See `docs/mission.md` for the product context that drives these decisions.
+This roadmap was developed in conjunction with Claude AI through iterative Q&A. Iteration scope, success criteria, and sequencing decisions were made by the author based on product reasoning, not generated wholesale. See `docs/mission.md` for the product context that drives these decisions.

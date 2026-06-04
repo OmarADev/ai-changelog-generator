@@ -1,4 +1,4 @@
-# Project Constitution — AI Changelog Generator
+# Project Constitution: AI Changelog Generator
 
 **Version:** 1.0  
 **Date:** 2026-04-28  
@@ -8,11 +8,11 @@
 
 ## 1. Vision
 
-To become the default tool developers reach for when they need to communicate what changed in their software — turning raw git history into clear, human-readable release notes automatically.
+To become the default tool developers reach for when they need to communicate what changed in their software: turning raw git history into clear, human-readable release notes automatically.
 
 ## 2. Mission
 
-Build an AI-powered SaaS product that reads a repository's git commit history and generates professional, categorized changelogs — accessible as both a CLI tool and a hosted public changelog page.
+Build an AI-powered SaaS product that reads a repository's git commit history and generates professional, categorized changelogs, accessible as both a CLI tool and a hosted public changelog page.
 
 ## 3. Core Values
 

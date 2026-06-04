@@ -1,4 +1,4 @@
-# Iteration 1 — Specification
+# Iteration 1: Specification
 
 **Iteration:** 1  
 **Goal:** Working CLI that reads git history and generates a structured changelog (pattern-based, no AI yet)  
@@ -13,8 +13,8 @@ This iteration delivers the core CLI tool. No web app, no AI API calls, no authe
 
 ### In Scope
 - Project scaffold (TypeScript, tsconfig, package.json)
-- `src/generator.ts` — commit categorization by conventional commit prefix
-- `src/index.ts` — CLI entry point, reads `git log`, outputs Markdown
+- `src/generator.ts`: commit categorization by conventional commit prefix
+- `src/index.ts`: CLI entry point, reads `git log`, outputs Markdown
 - Unit tests for `generateChangelog()`
 - `.gitignore`, `README.md` initial version
 - Git repo setup with feature branch + merge demo
@@ -32,7 +32,7 @@ This iteration delivers the core CLI tool. No web app, no AI API calls, no authe
 | Requirement | Coverage |
 |---|---|
 | REQ-005 (CLI Tool) | Fully implemented |
-| REQ-002 (Commit Retrieval) | Partially — local git only, no GitHub API |
+| REQ-002 (Commit Retrieval) | Partially: local git only, no GitHub API |
 
 ---
 
