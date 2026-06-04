@@ -72,13 +72,41 @@ Diagrams exported as PNG in `docs/ddd/`. Drawn manually in draw.io.
 *Planned for Iteration 2 — `docs/refactoring.md` will show two non-trivial before/after refactoring examples from `generator.ts` and `index.ts`, with explanation of what changed and why.*
 
 ### 9. Build Management
-*Planned for Iteration 2 — npm scripts for build, test, lint, and doc generation. Will integrate with GitHub Actions.*
+npm scripts defined in `package.json`:
+
+| Script | Command | Purpose |
+|--------|---------|---------|
+| `build` | `tsc` | Compile TypeScript to `dist/` |
+| `test` | `jest` | Run unit tests |
+| `lint` | `eslint src/**/*.ts` | Static analysis |
+| `docs` | `typedoc --entryPoints src/index.ts --out docs/api` | Generate API docs |
+
+ESLint configured in `.eslintrc.json` with `@typescript-eslint` rules.
+See CI pipeline screenshot: [ci-pipeline-steps.png](docs/screenshots/ci-pipeline-steps.png)
 
 ### 10. Continuous Delivery
-*Planned for Iteration 2 — GitHub Actions pipeline with: lint → test → build → deploy to Vercel. At least 4 distinct pipeline steps.*
+GitHub Actions pipeline defined in `.github/workflows/ci.yml`. Runs on every push and pull request to `main`.
+
+Pipeline steps:
+1. Install dependencies (`npm install`)
+2. Lint (`npm run lint`)
+3. Test (`npm test`)
+4. Build (`npm run build`)
+
+First run passed on Jun 3, 2026 in 1m 17s.
+- [Pipeline overview](docs/screenshots/ci-pipeline-overview.png)
+- [Pipeline steps — all passing](docs/screenshots/ci-pipeline-steps.png)
 
 ### 11. Unit Tests
-*Planned for Iteration 2 — `src/__tests__/` will cover core changelog generation logic. One test written manually, one developed with AI assistance, both integrated into the CI build.*
+Unit tests in `src/__tests__/generator.test.ts` covering the core `generateChangelog()` function.
+
+Written manually without AI assistance (first pass — no mocks, basic assertions):
+- Groups `feat:` commits under "Features"
+- Groups `fix:` commits under "Bug Fixes"
+- Routes unrecognized commits to "Other Changes"
+- Handles empty input
+
+All 4 tests pass. See: [tests-passing.png](docs/screenshots/tests-passing.png)
 
 ### 12. Functional Programming
 *Planned for Iteration 2 — `docs/functional-programming.md` will demonstrate: pure functions, higher-order functions, immutable data, function composition, and closures — all from the existing TypeScript source.*
@@ -91,10 +119,19 @@ Diagrams exported as PNG in `docs/ddd/`. Drawn manually in draw.io.
 ## Project Structure
 
 ```
+├── .github/
+│   └── workflows/
+│       └── ci.yml              # GitHub Actions CI pipeline
 ├── src/
-│   ├── index.ts        # CLI entry point
-│   └── generator.ts    # Core changelog generation logic
+│   ├── __tests__/
+│   │   └── generator.test.ts   # Unit tests
+│   ├── index.ts                # CLI entry point
+│   └── generator.ts            # Core changelog generation logic
 ├── docs/
+│   ├── screenshots/
+│   │   ├── ci-pipeline-overview.png
+│   │   ├── ci-pipeline-steps.png
+│   │   └── tests-passing.png
 │   ├── requirements-screenshots/
 │   │   ├── airtable-requirements-board.png
 │   │   ├── jira-board-all-requirements.png
@@ -109,6 +146,7 @@ Diagrams exported as PNG in `docs/ddd/`. Drawn manually in draw.io.
 │   └── startup-analysis.md
 ├── requirements/
 │   └── requirements.md
+├── .eslintrc.json
 ├── package.json
 └── tsconfig.json
 ```
