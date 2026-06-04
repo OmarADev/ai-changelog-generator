@@ -48,7 +48,7 @@ Full requirements list: [requirements/requirements.md](requirements/requirements
 
 ### 4. UML
 Diagrams exported as PNG in `docs/uml/`. Drawn manually in draw.io — no AI used for diagram content.
-- [Use-Case Diagram](docs/uml/use-case-diagram.png) — 18 use cases across Developer and End User actors, with GitHub / Claude AI API / Lemon Squeezy as external systems
+- [Use-Case Diagram](docs/uml/use-case-diagram.png) — 18 use cases: Developer actor (sign in, connect repo, generate changelog, configure settings, export, run CLI, upgrade to Pro, remove branding, set custom domain) and End User actor (view public page, browse versions, read release, subscribe), with GitHub / Claude AI API / Lemon Squeezy as external system actors
 - [Class Diagram](docs/uml/class-diagram.png) — 6 classes: CLIRunner, ChangelogGenerator, Commit, ChangelogEntry, User, Repository
 - [Component Diagram](docs/uml/component-diagram.png) — 3 layers: Presentation (CLIInterface), Application (GitReader, ChangelogGenerator), External (Git Repository, stdout)
 - [Activity Diagram](docs/uml/activity%20diagram.png) — CLI execution flow: validate path → read git log → parse → categorize → format → output
