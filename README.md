@@ -63,7 +63,17 @@ Diagrams exported as PNG in `docs/ddd/`. Drawn manually in draw.io.
 - [Bounded Context Canvas](docs/ddd/bounded%20context%20canvas.png) — Deep dive on the Changelog core domain: purpose, roles, inbound/outbound communications, ubiquitous language, business decisions, assumptions
 
 ### 6. Clean Code Development
-*Planned — `docs/clean-code.md` will annotate 5+ examples directly from the source with explanations of why each qualifies as clean code, plus a personal CCD cheat sheet (PDF) with 10+ points.*
+Five annotated examples from the real source code, each tied to a named clean code principle:
+
+1. Single Responsibility: `categorizeCommit()` has exactly one reason to change
+2. Meaningful Names: every variable in `generateChangelog()` describes what it holds
+3. Pure Functions: `formatCommitLine()` depends only on its input, touches nothing else
+4. Fail Fast: `index.ts` exits immediately on invalid input with a clear error message
+5. Small Functions: every function in `generator.ts` is under 20 lines
+
+Full annotations: [docs/clean-code.md](docs/clean-code.md)
+
+Personal CCD cheat sheet (12 principles): [docs/ccd-cheatsheet.md](docs/ccd-cheatsheet.md) — export to PDF via browser print.
 
 ### 7. Refactoring
 *Planned — `docs/refactoring.md` will show two non-trivial before/after refactoring examples from `generator.ts` and `index.ts`, with screenshots of the original code, explanation of what changed, and why it improved.*
