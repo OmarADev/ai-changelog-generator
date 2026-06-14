@@ -114,6 +114,8 @@ npm scripts defined in `package.json`:
 ESLint configured in `.eslintrc.json` with `@typescript-eslint` rules.
 See CI pipeline screenshot: [ci-pipeline-steps.png](docs/screenshots/ci-pipeline-steps.png)
 
+**Where I failed:** Running `npm run lint` locally on Windows produced no output and no errors, which looked like success but was actually a silent failure. The glob pattern `src/**/*.ts` in `package.json` is not shell-expanded by PowerShell before being passed to ESLint, so ESLint received the literal string and matched zero files. I caught this when the lint step flagged nothing despite a known issue in the code. Running `npx eslint src/index.ts src/generator.ts` directly confirmed the linter was working correctly. The CI pipeline on Linux (GitHub Actions) expands the glob as expected, so `npm run lint` works there — this was a local tooling environment mismatch, not a code problem.
+
 ### 10. Continuous Delivery
 GitHub Actions pipeline defined in [`.github/workflows/ci.yml`](.github/workflows/ci.yml). Runs on every push and pull request to `main`.
 
@@ -136,7 +138,9 @@ Two code quality metrics documented with screenshots and analysis:
 Full breakdown with screenshots and explanation of findings: [docs/metrics.md](docs/metrics.md)
 
 ### 12. Architecture
-*Planned — Architecture Communication Canvas for the AI Changelog Generator covering: system context, building blocks, runtime view, deployment view, and key architectural decisions.*
+arc42 Architecture Communication Canvas covering system context, building block breakdown (CLI and planned web layer), runtime flows for both CLI and web changelog generation, deployment view (npm + Vercel + Supabase), five key architecture decision records (TypeScript strict mode, Next.js vs Express+React, Claude vs GPT-4, Supabase over self-hosted, Lemon Squeezy over Stripe), quality goals, and known risks/technical debt.
+
+Full canvas: [docs/architecture/arc42-canvas.md](docs/architecture/arc42-canvas.md)
 
 ### 13. Vibe Coding / Agentic Coding (counts double)
 *Planned — three parts: (A) GUI built with Google Stitch, prompts documented in GitHub; (B) middle-sized pet project via Lovable; (C) distributed app built step-by-step with Claude Code, separate modules, md files per step, with full proof of understanding.*
