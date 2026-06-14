@@ -128,7 +128,12 @@ First run passed on Jun 3, 2026 in 1m 17s.
 - [Pipeline steps: all passing](docs/screenshots/ci-pipeline-steps.png)
 
 ### 11. Metrics
-*Planned — at least two metrics tools. SonarQube scan of the TypeScript codebase with screenshots of the code quality report, plus one additional metric. Output documented with screenshots and explanation of flagged issues.*
+Two code quality metrics documented with screenshots and analysis:
+
+1. **Jest Test Coverage** — 96.36% statement coverage, 100% function coverage, 11 tests across 2 suites
+2. **SonarCloud Static Analysis** — Security A, Reliability A, Maintainability A (3 minor code smells), 0 bugs, 0 vulnerabilities
+
+Full breakdown with screenshots and explanation of findings: [docs/metrics.md](docs/metrics.md)
 
 ### 12. Architecture
 *Planned — Architecture Communication Canvas for the AI Changelog Generator covering: system context, building blocks, runtime view, deployment view, and key architectural decisions.*
