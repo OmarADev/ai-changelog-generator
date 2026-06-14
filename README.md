@@ -143,7 +143,17 @@ arc42 Architecture Communication Canvas covering system context, building block 
 Full canvas: [docs/architecture/arc42-canvas.md](docs/architecture/arc42-canvas.md)
 
 ### 13. Vibe Coding / Agentic Coding (counts double)
-*Planned — three parts: (A) GUI built with Google Stitch, prompts documented in GitHub; (B) middle-sized pet project via Lovable; (C) distributed app built step-by-step with Claude Code, separate modules, md files per step, with full proof of understanding.*
+
+**Part A — GUI design with Google Stitch**
+Two core UI screens designed using natural language prompts only, no Figma or manual wireframing:
+1. Developer dashboard — dark theme, sidebar navigation, repository cards with generate buttons, stats row
+2. Public changelog page — light theme, expandable versioned entries, categorized sections (Features, Bug Fixes, Documentation)
+
+Prompts, generated screenshots, and reflection on what the AI added vs what was asked for: [docs/vibe-coding/13a-stitch-prompts.md](docs/vibe-coding/13a-stitch-prompts.md)
+
+**Part B — Standalone pet project via Lovable** *(in progress)*
+
+**Part C — Distributed app built step-by-step with Claude Code** *(in progress)*
 
 ---
 
